@@ -10,6 +10,7 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     modhash = json['modhash'];
     dist = json['dist'];
+
     if (json['children'] != null) {
       redditPosts = new List<RedditPost>();
       json['children'].forEach((v) {

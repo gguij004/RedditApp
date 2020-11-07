@@ -16,12 +16,13 @@ class Data1 {
     postAuthor = json['author'];
     preview = json['preview'] != null ? new Preview.fromJson(json['preview']) : null;
 
-    if (json['all_awardings'] != null) {
+    if (json['children'] != null) {
       awards = new List<AllAwarding>();
       json['children'].forEach((v) {
         awards.add(new AllAwarding.fromJson(v));
       });
     }
+
   }
 
   Map<String, dynamic> toJson() {
@@ -35,7 +36,7 @@ class Data1 {
     }
 
     if (this.awards != null) {
-      data['children'] = this.awards.map((v) => v.toJson()).toList();
+      data['all_awardings'] = this.awards.map((v) => v.toJson()).toList();
     }
 
     return data;

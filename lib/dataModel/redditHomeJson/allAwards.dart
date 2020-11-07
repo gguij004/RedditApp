@@ -1,18 +1,25 @@
 
 
-
 class AllAwarding {
-  AllAwarding({
-    this.iconUrl,
-  });
 
   String iconUrl;
 
-  factory AllAwarding.fromJson(Map<String, dynamic> json) => AllAwarding(
-    iconUrl: json["icon_url"],
-  );
+  AllAwarding({this.iconUrl});
 
-  Map<String, dynamic> toJson() => {
-    "icon_url": iconUrl,
-  };
+  AllAwarding.fromJson(Map<String, dynamic> json) {
+
+    iconUrl = json['icon_url'];
+
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+
+    data['icon_url'] = this.iconUrl;
+
+    return data;
+  }
 }
+
+
+
