@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget{
           //backgroundColor: Colors.black12,
                 canvasColor: Colors.black12
         ),
-        home: MyHomePage(title: 'Reddit Demod Home Page'),
+        home: MyHomePage(title: 'Reddit Demodddd Home Page'),
 
         routes:  <String, WidgetBuilder> {
           //'/home': (BuildContext context) => Home(),
