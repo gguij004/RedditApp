@@ -8,6 +8,7 @@ import 'package:reddit_app/screens/postDetail.dart';
 void main() => runApp(MyApp());
 
 // gery
+//gery 2
 class MyApp extends StatelessWidget{
 
   @override
