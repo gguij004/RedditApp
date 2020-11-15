@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:reddit_app/utilities/awardsDetail.dart';
 import 'package:reddit_app/screens/home/Home.dart';
 import 'package:reddit_app/screens/postDetail.dart';
 
@@ -20,16 +21,13 @@ class MyApp extends StatelessWidget{
           //backgroundColor: Colors.black12,
                 canvasColor: Colors.black12
         ),
-        home: MyHomePage(title: 'Reddit Demodddd Home Page'),
+        home: MyHomePage(title: 'Reddit Demod Home Page'),
 
         routes:  <String, WidgetBuilder> {
           //'/home': (BuildContext context) => Home(),
-          '/detail': (BuildContext context) => Detail(),
-          //'/order': (BuildContext context) => Order()
+          '/detail': (BuildContext context) => Detail()
         },
-        //home: Home()
-        //Detail: PostDetail()
-       // home: Home()
+
     );
   }
 

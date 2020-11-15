@@ -5,6 +5,7 @@ import 'package:reddit_app/dataModel/redditHomeJson/data1.dart';
 import 'package:reddit_app/dataModel/redditHomeJson/reddit.dart';
 import 'package:reddit_app/screens/home/postTileView.dart';
 import 'package:reddit_app/services/redditHomeRequest.dart';
+import 'package:flutter/cupertino.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -17,14 +18,17 @@ class MyHomePage extends StatefulWidget {
 
 String subRedditUrl;
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>{
   Future<Reddit> futureReddit;
+
+  AnimationController _animationController;
 
   @override
   void initState() {
     super.initState();
     RedditHomeRequest home = RedditHomeRequest();
     futureReddit = home.fetchReddit();
+
   }
 
   @override
@@ -48,7 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       itemCount: homePage.redditPosts.length,
                       itemBuilder: (BuildContext context, int index) {
                         Data1 post = homePage.redditPosts[index].data;
-                       // print(post.subreddit_name_prefixed);
                         return PostTileView(post, post.subreddit_name_prefixed);  //post tile
                       }),
                 ),
@@ -56,12 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       Navigator.of(context).pushNamed('/detail');
                     },
-                    child: Text('One sub reddit'))
+                    child: Text('One sub reddit')),
+
+                    
               ]));
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
-            print('este: $subRedditUrl');
             // By default, show a loading spinner.
             return CircularProgressIndicator();
           },
